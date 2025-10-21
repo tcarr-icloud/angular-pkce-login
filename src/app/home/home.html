@@ -1,0 +1,5 @@
+@if (authenticatedService.isAuthenticated()) {
+  <p>Welcome {{authenticatedService.authenticatedUserData().preferred_username}}</p>
+} @else {
+  <p>Welcome guest</p>
+}
