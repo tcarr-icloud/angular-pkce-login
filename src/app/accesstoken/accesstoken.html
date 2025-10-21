@@ -1,1 +1,15 @@
-<p>Accesstoken: {{ authenticatedService.accessToken() }}</p>
+<mat-card class="accesstoken-card">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>Access Token</mat-card-title>
+<!--      <mat-card-subtitle>This is the access token of the current user.</mat-card-subtitle>-->
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      The access token is used to authenticate the user and to access the
+      protected resources.
+    </p>
+    <textarea>{{ authenticatedService.accessToken() }}</textarea>
+  </mat-card-content>
+</mat-card>

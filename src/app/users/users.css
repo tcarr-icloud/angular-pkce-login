@@ -1,4 +1,4 @@
-.accesstoken-card {
+.users-card {
   max-width: 70%;
   margin: 2em auto;
 }
@@ -9,7 +9,3 @@ mat-card-title-group {
   align-items: center;
 }
 
-textarea {
-  width: -webkit-fill-available;
-  height: 350px;
-}

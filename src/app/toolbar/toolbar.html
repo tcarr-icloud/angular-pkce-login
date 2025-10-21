@@ -49,6 +49,8 @@
   </svg>
   <span class="spacer"></span>
   @if (authenticatedService.isAuthenticated()) {
+    <button mat-button [routerLink]="['/roles']">Roles</button>
+    <button mat-button [routerLink]="['/clients']">Clients</button>
     <button mat-button [routerLink]="['/users']">Users</button>
     <button matButton [matMenuTriggerFor]="menu">About</button>
     <mat-menu #menu="matMenu">

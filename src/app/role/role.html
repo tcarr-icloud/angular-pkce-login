@@ -1,0 +1,18 @@
+<mat-card class="roles-card">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>Roles</mat-card-title>
+      <mat-card-subtitle>List of roles</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      @for (role of roles; track role.id) {
+        <mat-list-item>
+          <span matListItemTitle>{{ role.name }}</span>
+          <span matListItemLine>{{ role.description }}</span>
+        </mat-list-item>
+      }
+    </mat-list>
+  </mat-card-content>
+</mat-card>

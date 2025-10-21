@@ -1,4 +1,4 @@
-.accesstoken-card {
+.roles-card {
   max-width: 70%;
   margin: 2em auto;
 }
@@ -7,9 +7,4 @@ mat-card-title-group {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-textarea {
-  width: -webkit-fill-available;
-  height: 350px;
 }
