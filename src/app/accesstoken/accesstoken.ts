@@ -1,14 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
-import {JsonPipe} from '@angular/common';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardSubtitle,
-  MatCardTitle,
-  MatCardTitleGroup
-} from '@angular/material/card';
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardTitleGroup} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -16,7 +8,6 @@ import {FormsModule} from '@angular/forms';
   imports: [
     MatCard,
     MatCardTitle,
-    MatCardSubtitle,
     MatCardContent,
     MatCardHeader,
     MatCardTitleGroup,
@@ -27,6 +18,7 @@ import {FormsModule} from '@angular/forms';
 })
 export class Accesstoken {
   protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+
   constructor() {
     this.authenticatedService.getAccessToken();
   }

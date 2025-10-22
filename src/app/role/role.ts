@@ -25,8 +25,8 @@ import {
   styleUrl: './role.css'
 })
 export class Role {
-  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
   roles: any[] = [];
+  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
 
   constructor() {
     this.getRoles();

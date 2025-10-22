@@ -11,8 +11,8 @@ import {JsonPipe} from '@angular/common';
   styleUrl: './resource.css'
 })
 export class Resource {
-  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
   event: string = "";
+  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
 
   constructor() {
     this.getResource();

@@ -49,16 +49,17 @@
   </svg>
   <span class="spacer"></span>
   @if (authenticatedService.isAuthenticated()) {
-    <button mat-button [routerLink]="['/roles']">Roles</button>
-    <button mat-button [routerLink]="['/clients']">Clients</button>
-    <button mat-button [routerLink]="['/users']">Users</button>
-    <button matButton [matMenuTriggerFor]="menu">About</button>
+    <button [routerLink]="['/clients']" mat-button>Clients</button>
+    <button [routerLink]="['/users']" mat-button>User</button>
+    <button [routerLink]="['/roles']" mat-button>Roles</button>
+    <p>|</p>
+    <button [matMenuTriggerFor]="menu" matButton>About</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="['/userinformation']">Userinfo</button>
-      <button mat-menu-item [routerLink]="['/accesstoken']">Access token</button>
-      <button mat-menu-item (click)="authenticatedService.logout()">Logout</button>
+      <button [routerLink]="['/userinformation']" mat-menu-item>Userinfo</button>
+      <button [routerLink]="['/accesstoken']" mat-menu-item>Access token</button>
+      <button (click)="authenticatedService.logout()" mat-menu-item>Logout</button>
     </mat-menu>
   } @else {
-    <button matButton (click)="authenticatedService.login()">Login</button>
+    <button (click)="authenticatedService.login()" matButton>Login</button>
   }
 </mat-toolbar>

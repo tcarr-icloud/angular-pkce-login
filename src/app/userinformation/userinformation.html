@@ -1,6 +1,17 @@
-<h3>Userinfo</h3>
-<ul>
-  <li> Sub: {{ userInformation.sub }}</li>
-  <li> Email verified: {{ userInformation.email_verified }}</li>
-  <li> Preferred username: {{ userInformation.preferred_username }}</li>
-</ul>
+<mat-card class="userinfo-card">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>User Information</mat-card-title>
+      <mat-card-subtitle>The user information is used to display the user information of the current user.
+      </mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item><span matListItemTitle>Sub: {{ userInformation.sub }}</span></mat-list-item>
+      <mat-list-item><span matListItemTitle>Email verified: {{ userInformation.email_verified }}</span></mat-list-item>
+      <mat-list-item><span matListItemTitle>Preferred username: {{ userInformation.preferred_username }}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

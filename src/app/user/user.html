@@ -1,0 +1,23 @@
+@for (user of users; track user.id) {
+  <mat-card class="feature-card user-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ user.username }}</mat-card-title>
+        <mat-card-subtitle>{{ user.id }}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list role="list">
+        <mat-list-item>
+          <span matListItemLine>Email: {{ user.email }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemLine>First: {{ user.firstName }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemLine>Last: {{ user.lastName }}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+}

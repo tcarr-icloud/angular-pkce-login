@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
 import {MatListModule} from '@angular/material/list';
 import {
@@ -11,22 +11,15 @@ import {
 } from '@angular/material/card';
 
 @Component({
-  selector: 'app-users',
-  imports: [
-    MatListModule,
-    MatCard,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatCardHeader,
-    MatCardTitleGroup
-  ],
-  templateUrl: './users.html',
-  styleUrl: './users.css'
+  selector: 'app-user',
+  imports: [MatListModule, MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle,],
+  templateUrl: './user.html',
+  styleUrl: './user.css'
 })
-export class Users {
-  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+export class User {
   users: any[] = [];
+  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+  protected readonly value = signal('');
 
   constructor() {
     this.getUsers();
@@ -34,7 +27,7 @@ export class Users {
 
   getUsers(): void {
     let accessToken: string = this.authenticatedService.accessToken();
-    fetch('http://localhost:9090/admin/realms/demo/users', {
+    fetch('http://localhost:8080/users', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }
@@ -42,5 +35,4 @@ export class Users {
       this.users = await response.json();
     });
   }
-
 }

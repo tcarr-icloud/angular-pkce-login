@@ -1,11 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
-import {JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [
-  ],
+  imports: [],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

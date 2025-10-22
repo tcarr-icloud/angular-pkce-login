@@ -1,5 +1,4 @@
 import {Component, inject} from '@angular/core';
-import {JsonPipe} from '@angular/common';
 import {AuthenticatedService} from '../authenticated-service';
 import {
   MatCard,
@@ -12,7 +11,7 @@ import {
 import {MatList, MatListItem} from '@angular/material/list';
 
 @Component({
-  selector: 'app-clientrepresentation',
+  selector: 'app-client',
   imports: [
     MatCard,
     MatCardHeader,
@@ -21,14 +20,14 @@ import {MatList, MatListItem} from '@angular/material/list';
     MatCardSubtitle,
     MatCardContent,
     MatList,
-    MatListItem
+    MatListItem,
   ],
-  templateUrl: './clientrepresentation.html',
-  styleUrl: './clientrepresentation.css'
+  templateUrl: './client.html',
+  styleUrl: './client.css'
 })
-export class Clientrepresentation {
-  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+export class Client {
   clients: any[] = [];
+  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
 
   constructor() {
     this.getClients();

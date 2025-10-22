@@ -1,15 +1,14 @@
 import {inject, Injectable, signal} from '@angular/core';
 import {OidcSecurityService} from 'angular-auth-oidc-client';
-import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticatedService {
-  private readonly oidcSecurityService: OidcSecurityService = inject(OidcSecurityService);
   isAuthenticated = signal<boolean>(false);
   authenticatedUserData = signal<any>(null);
   accessToken = signal<string>("");
+  private readonly oidcSecurityService: OidcSecurityService = inject(OidcSecurityService);
 
   constructor() {
     this.checkAuth();
@@ -26,7 +25,9 @@ export class AuthenticatedService {
   }
 
   getAccessToken(): void {
-    this.oidcSecurityService.getAccessToken().subscribe(token => {this.accessToken.set(token)});
+    this.oidcSecurityService.getAccessToken().subscribe(token => {
+      this.accessToken.set(token)
+    });
   }
 
   login(): void {
