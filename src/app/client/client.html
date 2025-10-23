@@ -1,5 +1,6 @@
-@for (client of clients; track client.id) {
-  <mat-card class="feature-card client-card">
+<div class="feature-container">
+  @for (client of clients; track client.id) {
+    <mat-card class="feature-card client-card">
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>{{ client.clientId }}</mat-card-title>
@@ -18,3 +19,4 @@
     </mat-card-content>
   </mat-card>
 }
+</div>

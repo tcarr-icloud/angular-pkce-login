@@ -1,0 +1,29 @@
+export interface UserrepresentationDTO {
+  id: string;
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  emailVerified: boolean;
+  attributes: any;
+  userProfileMetadata: any;
+  enabled: boolean;
+  self: string;
+  origin: string;
+  createdTimestamp: number;
+  totp: boolean;
+  federationLink: string;
+  serviceAccountClientId: string;
+  credentials: any;
+  disabledCredentialTypes: string[];
+  requiredActions: string[];
+  federatedIdentities: any;
+  realmRoles: string[];
+  clientRoles: string[];
+  clientConsents: any;
+  notBefore: number;
+  applicationRoles: string[];
+  socialLinks: string[];
+  groups: string[];
+  access: any;
+}

@@ -11,7 +11,7 @@ grant_type = password
 %}
 
 ###
-GET localhost:8080/api/users
+GET localhost:8080/api/keycloak/users
 Authorization: Bearer {{access_token}}
 
 ###
