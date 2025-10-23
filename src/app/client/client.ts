@@ -9,6 +9,7 @@ import {
   MatCardTitleGroup
 } from '@angular/material/card';
 import {MatList, MatListItem} from '@angular/material/list';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-client',
@@ -35,7 +36,7 @@ export class Client {
 
   getClients(): void {
     let accessToken: string = this.authenticatedService.accessToken();
-    fetch('http://localhost:8080/clients', {
+    fetch(environment.apiUrl + '/keycloak/clients', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }

@@ -9,6 +9,7 @@ import {
   MatCardTitle,
   MatCardTitleGroup
 } from '@angular/material/card';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-role',
@@ -34,7 +35,7 @@ export class Role {
 
   getRoles(): void {
     let accessToken: string = this.authenticatedService.accessToken();
-    fetch('http://localhost:8080/roles', {
+    fetch(environment.apiUrl + '/keycloak/roles', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }

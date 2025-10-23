@@ -1,0 +1,19 @@
+### Get access token
+POST http://localhost:9090/realms/demo/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id = api-client &
+username = admin@demo.com &
+password = password &
+grant_type = password
+> {%
+  client.global.set("access_token", response.body.access_token)
+%}
+
+###
+GET localhost:8080/api/users
+Authorization: Bearer {{access_token}}
+
+###
+
+

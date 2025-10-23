@@ -10,6 +10,7 @@ import {
   MatCardTitleGroup
 } from '@angular/material/card';
 import {MatList, MatListItem} from '@angular/material/list';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-userinformation',
@@ -44,7 +45,7 @@ export class Userinformation {
     let accessToken: string;
     this.oidcSecurityService.getAccessToken().subscribe(token => {
       accessToken = token
-      fetch('http://localhost:9090/realms/demo/protocol/openid-connect/userinfo', {
+      fetch(environment.oidc.userinfo_endpoint, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

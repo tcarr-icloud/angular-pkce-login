@@ -9,6 +9,7 @@ import {
   MatCardTitle,
   MatCardTitleGroup
 } from '@angular/material/card';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -27,7 +28,7 @@ export class User {
 
   getUsers(): void {
     let accessToken: string = this.authenticatedService.accessToken();
-    fetch('http://localhost:8080/users', {
+    fetch(environment.apiUrl + '/keycloak/users', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }

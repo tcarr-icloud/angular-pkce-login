@@ -4,6 +4,7 @@ import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {authInterceptor, provideAuth} from 'angular-auth-oidc-client';
 import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {environment} from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,10 +14,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([authInterceptor()])),
     provideAuth({
       config: {
-        authority: 'http://localhost:9090/realms/demo',
+        authority: environment.oidc.authority,
         redirectUrl: window.location.origin,
         postLogoutRedirectUri: window.location.origin,
-        clientId: 'angular_spa',
+        clientId: environment.oidc.clientId,
         scope: 'openid profile',
         responseType: 'code',
         silentRenew: true,
