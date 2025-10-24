@@ -1,6 +1,6 @@
 import {Component, inject, signal} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
-import {MatListModule} from '@angular/material/list';
+import {MatListItemLine, MatListItemTitle, MatListModule} from '@angular/material/list';
 import {
   MatCard,
   MatCardContent,
@@ -10,13 +10,23 @@ import {
   MatCardTitleGroup
 } from '@angular/material/card';
 import {environment} from '../../environments/environment';
-import {JsonPipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {UserDTO} from '../interfaces/userDTO';
 
 @Component({
   selector: 'app-users',
-  imports: [MatListModule, MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, RouterLink,],
+  imports: [
+    MatListModule,
+    MatCard,
+    MatCardContent,
+    MatCardHeader,
+    MatCardTitleGroup,
+    MatCardTitle,
+    MatCardSubtitle,
+    RouterLink,
+  MatListItemTitle,
+  MatListItemLine
+  ],
   templateUrl: './users.html',
   styleUrl: './users.css'
 })

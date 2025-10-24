@@ -8,22 +8,12 @@ import {
   MatCardTitle,
   MatCardTitleGroup
 } from '@angular/material/card';
-import {MatList, MatListItem, MatListItemTitle} from '@angular/material/list';
+import {MatList, MatListItem, MatListItemLine, MatListItemTitle} from '@angular/material/list';
 import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-client',
-  imports: [
-    MatCard,
-    MatCardHeader,
-    MatCardTitleGroup,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatList,
-    MatListItem,
-    MatListItemTitle,
-  ],
+  imports: [MatCard, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, MatCardContent, MatList, MatListItem, MatListItemLine, MatListItemTitle,],
   templateUrl: './client.html',
   styleUrl: './client.css'
 })

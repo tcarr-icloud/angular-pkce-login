@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
-import {MatListModule} from '@angular/material/list';
+import {MatListItemLine, MatListItemTitle, MatListModule} from '@angular/material/list';
 import {
   MatCard,
   MatCardContent,
@@ -13,15 +13,7 @@ import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-role',
-  imports: [
-    MatCard,
-    MatCardHeader,
-    MatCardTitleGroup,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatListModule,
-  ],
+  imports: [MatCard, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, MatCardContent, MatListModule, MatListItemTitle, MatListItemLine],
   templateUrl: './role.html',
   styleUrl: './role.css'
 })
