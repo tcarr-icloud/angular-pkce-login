@@ -1,22 +1,28 @@
 <div class="feature-container">
   @for (client of clients; track client.id) {
-    <mat-card class="feature-card client-card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>{{ client.clientId }}</mat-card-title>
-        <mat-card-subtitle>{{ client.id }}</mat-card-subtitle>
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-list role="list">
-        <mat-list-item>
-          <span class="foo" matListItemLine>Name: {{ client.name }}</span>
-        </mat-list-item>
-        <mat-list-item>
-          <span matListItemLine>Enabled: {{ client.enabled }}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-}
+    <mat-card class="feature-list-card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ client.clientId }}</mat-card-title>
+          <mat-card-subtitle>{{ client.id }}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <span matListItemTitle>Name</span>
+            <span matListItemLine>{{ client.name }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Description</span>
+            <span matListItemLine>{{ client.description }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Enabled</span>
+            <span matListItemLine>{{ client.enabled }}</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  }
 </div>

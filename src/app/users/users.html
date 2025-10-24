@@ -1,0 +1,32 @@
+<div class="feature-container">
+  @for (user of users; track user.id) {
+    <mat-card class="feature-list-card" [routerLink]="['/user', user.id]">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ user.username }}</mat-card-title>
+          <mat-card-subtitle>{{ user.id }}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <span matListItemTitle>Email</span>
+            <span matListItemLine>{{ user.email }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>First</span>
+            <span matListItemLine>{{ user.firstName }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Last</span>
+            <span matListItemLine>{{ user.lastName }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Enabled</span>
+            <span matListItemLine>{{ user.enabled }}</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>

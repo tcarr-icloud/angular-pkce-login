@@ -7,22 +7,13 @@ import {UserrepresentationDTO} from '../interfaces/userrepresentationDTO';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UserDTO} from '../interfaces/userDTO';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardSubtitle,
-  MatCardTitle,
-  MatCardTitleGroup
-} from '@angular/material/card';
-import {MatLabel} from '@angular/material/form-field';
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardTitleGroup} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
-import {MatFormField} from '@angular/material/form-field';
-import {MatInput} from '@angular/material/input';
+import {MatList, MatListItem, MatListItemLine, MatListItemTitle} from '@angular/material/list';
 
 @Component({
   selector: 'app-user',
-  imports: [JsonPipe, MatCard, MatLabel, FormsModule, MatFormField, MatInput, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle],
+  imports: [JsonPipe, MatCard, FormsModule, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatListItem, MatList, MatListItemLine, MatListItemTitle,],
   templateUrl: './user.html',
   styleUrl: './user.css'
 })

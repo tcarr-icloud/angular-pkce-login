@@ -1,18 +1,19 @@
 <div class="feature-container">
   @for (role of roles; track role.id) {
-  <mat-card class="feature-card role-card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>{{ role.name }}</mat-card-title>
-        <mat-card-subtitle>{{ role.id }}</mat-card-subtitle>
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-list role="list">
-        <mat-list-item>
-          <span matListItemLine>Description: {{ role.description }}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-}
+    <mat-card class="feature-list-card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ role.name }}</mat-card-title>
+          <mat-card-subtitle>{{ role.id }}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item>
+            <span matListItemTitle>Description</span>
+            <span matListItemLine>{{ role.description }}</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  }

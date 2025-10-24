@@ -1,10 +1,25 @@
-.user-card {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+mat-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  mat-list-item {
+    height: auto;
+    width: auto;
+  }
 }
 
-.center-container {
-  display: flex;
+mat-list-item {
+  display: block;
+  margin-bottom: 4px;
+}
+
+mat-list-item [matListItemTitle] {
+  font-weight: bold;
+  display: block;
+}
+
+mat-list-item [matListItemLine] {
+  margin-left: 12px;
+  display: block;
 }
