@@ -1,59 +1,70 @@
-# PkceLogin
+# PKCE Login
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+An Angular application implementing OAuth 2.0 authentication with PKCE (Proof Key for Code Exchange) flow using OpenID Connect.
 
-## Development server
+## Overview
 
-To start a local development server, run:
+This project is a modern Angular 20 application that provides secure authentication using the PKCE authorization flow. It leverages the `angular-auth-oidc-client` library to handle OAuth 2.0 and OpenID Connect authentication protocols.
 
-```bash
-ng serve
-```
+## Tech Stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Framework**: Angular 20.3.0
+- **Language**: TypeScript 5.9.2
+- **UI Libraries**: 
+  - Angular Material 20.2.9
+  - Material-UI (MUI) 7.3.4
+  - Emotion (CSS-in-JS)
+- **Authentication**: angular-auth-oidc-client 20.0.2
+- **State Management**: RxJS 7.8.0
+- **Testing**: Karma + Jasmine
 
-## Code scaffolding
+## Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js (LTS version recommended)
+- npm package manager
 
-```bash
-ng generate component component-name
-```
+## Available Scripts
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **`npm start`** - Start the development server
+- **`npm run build`** - Build the project for production
+- **`npm run watch`** - Build in watch mode with development configuration
+- **`npm test`** - Run unit tests with Karma
 
-```bash
-ng generate --help
-```
+## Development Server
 
-## Building
+Run `npm start` to start the development server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-To build the project run:
+## Build
 
-```bash
-ng build
-```
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Testing
 
-## Running unit tests
+Run `npm test` to execute the unit tests via Karma test runner.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Features
 
-```bash
-ng test
-```
+- **PKCE Authentication Flow**: Secure OAuth 2.0 authorization using PKCE
+- **Modern Angular Architecture**: Built with Angular 20 standalone components
+- **Material Design**: Consistent UI using Angular Material and MUI components
+- **Type Safety**: Full TypeScript support for enhanced development experience
+- **Testing Setup**: Pre-configured Karma and Jasmine for unit testing
 
-## Running end-to-end tests
+## Code Style
 
-For end-to-end (e2e) testing, run:
+This project uses Prettier for code formatting with the following configuration:
+- Print width: 100 characters
+- Single quotes enabled
+- Angular parser for HTML files
 
-```bash
-ng e2e
-```
+## Security
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+This application implements the PKCE (Proof Key for Code Exchange) flow, which is the recommended OAuth 2.0 authorization flow for single-page applications (SPAs). PKCE provides enhanced security by preventing authorization code interception attacks.
 
-## Additional Resources
+## License
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Private
+
+---
+
+For more information about Angular, visit the [Angular documentation](https://angular.dev/).
