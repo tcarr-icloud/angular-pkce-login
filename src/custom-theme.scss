@@ -44,17 +44,14 @@ body {
     mat-list-item [matListItemLine] {
       color: inherit;
       display: block;
-      margin-bottom: 4px;
     }
 
     mat-list-item [matListItemTitle] {
       font-weight: bold;
-      display: block;
     }
 
     mat-list-item [matListItemLine] {
       margin-left: 12px;
-      display: block;
     }
   }
 }
