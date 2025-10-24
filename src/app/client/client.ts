@@ -8,7 +8,7 @@ import {
   MatCardTitle,
   MatCardTitleGroup
 } from '@angular/material/card';
-import {MatList, MatListItem} from '@angular/material/list';
+import {MatList, MatListItem, MatListItemTitle} from '@angular/material/list';
 import {environment} from '../../environments/environment';
 
 @Component({
@@ -22,6 +22,7 @@ import {environment} from '../../environments/environment';
     MatCardContent,
     MatList,
     MatListItem,
+    MatListItemTitle,
   ],
   templateUrl: './client.html',
   styleUrl: './client.css'
