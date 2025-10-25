@@ -9,7 +9,6 @@ import {
   MatCard,
   MatCardContent,
   MatCardHeader,
-  MatCardSubtitle,
   MatCardTitle,
   MatCardTitleGroup
 } from '@angular/material/card';
@@ -18,7 +17,7 @@ import {MatList, MatListItem, MatListItemLine, MatListItemTitle} from '@angular/
 
 @Component({
   selector: 'app-user',
-  imports: [MatCard, FormsModule, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatListItem, MatList, MatListItemLine, MatListItemTitle, MatCardSubtitle, RouterLink,],
+  imports: [MatCard, FormsModule, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatListItem, MatList, MatListItemLine, MatListItemTitle, RouterLink,],
   templateUrl: './user.html',
   styleUrl: './user.css'
 })

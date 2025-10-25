@@ -5,7 +5,6 @@ import {
   MatCard,
   MatCardContent,
   MatCardHeader,
-  MatCardSubtitle,
   MatCardTitle,
   MatCardTitleGroup
 } from '@angular/material/card';
@@ -15,7 +14,7 @@ import {UserDTO} from '../interfaces/userDTO';
 
 @Component({
   selector: 'app-users',
-  imports: [MatListModule, MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, RouterLink, MatListItemTitle, MatListItemLine],
+  imports: [MatListModule, MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, RouterLink, MatListItemTitle, MatListItemLine],
   templateUrl: './users.html',
   styleUrl: './users.css'
 })
