@@ -2,6 +2,7 @@ import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardTitleGroup} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-accesstoken',
@@ -11,7 +12,8 @@ import {FormsModule} from '@angular/forms';
     MatCardContent,
     MatCardHeader,
     MatCardTitleGroup,
-    FormsModule
+    FormsModule,
+    AsyncPipe
   ],
   templateUrl: './accesstoken.html',
   styleUrl: './accesstoken.css'

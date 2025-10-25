@@ -15,18 +15,7 @@ import {UserDTO} from '../interfaces/userDTO';
 
 @Component({
   selector: 'app-users',
-  imports: [
-    MatListModule,
-    MatCard,
-    MatCardContent,
-    MatCardHeader,
-    MatCardTitleGroup,
-    MatCardTitle,
-    MatCardSubtitle,
-    RouterLink,
-  MatListItemTitle,
-  MatListItemLine
-  ],
+  imports: [MatListModule, MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, RouterLink, MatListItemTitle, MatListItemLine],
   templateUrl: './users.html',
   styleUrl: './users.css'
 })
@@ -40,13 +29,14 @@ export class Users {
   }
 
   getUsers(): void {
-    let accessToken: string = this.authenticatedService.accessToken();
-    fetch(environment.apiUrl + '/users', {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    }).then(async response => {
-      this.users = await response.json();
+    this.authenticatedService.getAccessToken().subscribe(token => {
+      fetch(environment.apiUrl + '/users', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }).then(async response => {
+        this.users = await response.json();
+      });
     });
   }
 

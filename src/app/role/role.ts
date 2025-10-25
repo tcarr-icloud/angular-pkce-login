@@ -26,13 +26,14 @@ export class Role {
   }
 
   getRoles(): void {
-    let accessToken: string = this.authenticatedService.accessToken();
-    fetch(environment.apiUrl + '/keycloak/roles', {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    }).then(async response => {
-      this.roles = await response.json();
+    this.authenticatedService.getAccessToken().subscribe(accessToken => {
+      fetch(environment.apiUrl + '/keycloak/roles', {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      }).then(async response => {
+        this.roles = await response.json();
+      });
     });
   }
 }

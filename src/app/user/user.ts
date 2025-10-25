@@ -1,38 +1,42 @@
 import {Component, inject, signal} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {AuthenticatedService} from '../authenticated-service';
-import {JsonPipe} from '@angular/common';
-import {UserrepresentationDTO} from '../interfaces/userrepresentationDTO';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UserDTO} from '../interfaces/userDTO';
-import {MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardTitleGroup} from '@angular/material/card';
+import {
+  MatCard,
+  MatCardContent,
+  MatCardHeader,
+  MatCardSubtitle,
+  MatCardTitle,
+  MatCardTitleGroup
+} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
 import {MatList, MatListItem, MatListItemLine, MatListItemTitle} from '@angular/material/list';
 
 @Component({
   selector: 'app-user',
-  imports: [JsonPipe, MatCard, FormsModule, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatListItem, MatList, MatListItemLine, MatListItemTitle,],
+  imports: [MatCard, FormsModule, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatListItem, MatList, MatListItemLine, MatListItemTitle, MatCardSubtitle, RouterLink,],
   templateUrl: './user.html',
   styleUrl: './user.css'
 })
 export class User {
   userDto = signal(null as UserDTO | null);
-  userKeycloakDto = signal(null as UserrepresentationDTO | null);
-  protected http: HttpClient = inject(HttpClient);
-  protected route: ActivatedRoute = inject(ActivatedRoute);
-  protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+  private http: HttpClient = inject(HttpClient);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
 
   constructor() {
     let userId = this.route.snapshot.params['id'];
-    let accessToken: string = this.authenticatedService.accessToken();
-    this.getUserById(accessToken, userId).subscribe((data) => {
-      this.userDto.set(data);
-      this.getKeycloakUserById(accessToken, data.keycloakUserId).subscribe((data) => {
-        this.userKeycloakDto.set(data);
+    this.authenticatedService.getAccessToken()
+      .subscribe(accessToken => {
+        this.getUserById(accessToken, userId)
+          .subscribe((data) => {
+            this.userDto.set(data);
+          });
       });
-    });
   }
 
   getUserById(accessToken: string, id: number): Observable<UserDTO> {
@@ -41,9 +45,4 @@ export class User {
     });
   }
 
-  getKeycloakUserById(accessToken: string, id: string): Observable<UserrepresentationDTO> {
-    return this.http.get<UserrepresentationDTO>(environment.apiUrl + '/keycloak/users/' + id, {
-      headers: {'Authorization': `Bearer ${accessToken}`}
-    });
-  }
 }

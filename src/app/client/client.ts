@@ -26,13 +26,14 @@ export class Client {
   }
 
   getClients(): void {
-    let accessToken: string = this.authenticatedService.accessToken();
-    fetch(environment.apiUrl + '/keycloak/clients', {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    }).then(async response => {
-      this.clients = await response.json();
+    this.authenticatedService.getAccessToken().subscribe(accessToken => {
+      fetch(environment.apiUrl + '/keycloak/clients', {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      }).then(async response => {
+        this.clients = await response.json();
+      });
     });
   }
 

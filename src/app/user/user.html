@@ -1,18 +1,16 @@
-<mat-card class="user-card">
+<mat-card class="resource-card">
   <mat-card-header>
     <mat-card-title-group>
       <mat-card-title>User</mat-card-title>
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
-    <mat-list>
-      <mat-list-item>
-        <span matListItemTitle>Id</span>
-        <span matListItemLine>{{ userDto()?.id }}</span>
-      </mat-list-item>
+    <mat-list class="horizontal-wrap-list">
       <mat-list-item>
         <span matListItemTitle>Keycloak Id</span>
-        <span matListItemLine>{{ userDto()?.keycloakUserId }}</span>
+        <a matListItemLine [routerLink]="['/keycloak/user', userDto()?.keycloakUserId]">
+          {{ userDto()?.keycloakUserId }}
+        </a>
       </mat-list-item>
       <mat-list-item>
         <span matListItemTitle>Username</span>
@@ -33,126 +31,6 @@
       <mat-list-item>
         <span matListItemTitle>Enabled</span>
         <span matListItemLine>{{ userDto()?.enabled }}</span>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="user-card">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>UserRepresentation</mat-card-title>
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item>
-        <span matListItemTitle>Id</span>
-        <span matListItemLine>{{ userKeycloakDto()?.id }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Username</span>
-        <span matListItemLine>{{ userKeycloakDto()?.username }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>FirstName</span>
-        <span matListItemLine>{{ userKeycloakDto()?.firstName }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>LastName</span>
-        <span matListItemLine>{{ userKeycloakDto()?.lastName }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Email</span>
-        <span matListItemLine>{{ userKeycloakDto()?.email }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>EmailVerified</span>
-        <span matListItemLine>{{ userKeycloakDto()?.emailVerified }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Attributes</span>
-        <span matListItemLine>{{ userKeycloakDto()?.attributes | json }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>userProfileMetadata</span>
-        <span matListItemLine>{{ userKeycloakDto()?.userProfileMetadata | json }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Enabled</span>
-        <span matListItemLine>{{ userKeycloakDto()?.enabled }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Self</span>
-        <span matListItemLine>{{ userKeycloakDto()?.self }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Origin</span>
-        <span matListItemLine>{{ userKeycloakDto()?.origin }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>CreatedTimestamp</span>
-        <span matListItemLine>{{ userKeycloakDto()?.createdTimestamp }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>TOTP</span>
-        <span matListItemLine>{{ userKeycloakDto()?.totp }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>FederationLink</span>
-        <span matListItemLine>{{ userKeycloakDto()?.federationLink }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>serviceAccountClientId</span>
-        <span matListItemLine>{{ userKeycloakDto()?.serviceAccountClientId }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>credentials</span>
-        <span matListItemLine>{{ userKeycloakDto()?.credentials | json }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>disabledCredentialTypes</span>
-        <span matListItemLine>{{ userKeycloakDto()?.disabledCredentialTypes }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>requiredActions</span>
-        <span matListItemLine>{{ userKeycloakDto()?.requiredActions }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>federatedIdentities</span>
-        <span matListItemLine>{{ userKeycloakDto()?.federatedIdentities | json }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>realmRoles</span>
-        <span matListItemLine>{{ userKeycloakDto()?.realmRoles }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>clientRoles</span>
-        <span matListItemLine>{{ userKeycloakDto()?.clientRoles }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>clientConsents</span>
-        <span matListItemLine>{{ userKeycloakDto()?.clientConsents | json }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>notBefore</span>
-        <span matListItemLine>{{ userKeycloakDto()?.notBefore }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>applicationRoles</span>
-        <span matListItemLine>{{ userKeycloakDto()?.applicationRoles }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>socialLinks</span>
-        <span matListItemLine>{{ userKeycloakDto()?.socialLinks }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>groups</span>
-        <span matListItemLine>{{ userKeycloakDto()?.groups }}</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>access</span>
-        <span matListItemLine>{{ userKeycloakDto()?.access | json }}</span>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

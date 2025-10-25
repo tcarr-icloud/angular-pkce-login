@@ -10,6 +10,6 @@
       The access token is used to authenticate the user and to access the
       protected resources.
     </p>
-    <textarea>{{ authenticatedService.accessToken() }}</textarea>
+    <textarea>{{ authenticatedService.getAccessToken()|async }}</textarea>
   </mat-card-content>
 </mat-card>
