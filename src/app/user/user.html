@@ -8,7 +8,7 @@
     <mat-list class="horizontal-wrap-list">
       <mat-list-item>
         <span matListItemTitle>Keycloak Id</span>
-        <a matListItemLine [routerLink]="['/keycloak/user', userDto()?.keycloakUserId]">
+        <a [routerLink]="['/keycloak/user', userDto()?.keycloakUserId]" matListItemLine>
           {{ userDto()?.keycloakUserId }}
         </a>
       </mat-list-item>

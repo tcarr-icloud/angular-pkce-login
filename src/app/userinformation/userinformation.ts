@@ -1,20 +1,12 @@
 import {Component, inject} from '@angular/core';
 import {OidcSecurityService} from 'angular-auth-oidc-client';
 import {Userinfo} from './userinfo';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardSubtitle,
-  MatCardTitle,
-  MatCardTitleGroup
-} from '@angular/material/card';
-import {MatList, MatListItem} from '@angular/material/list';
 import {environment} from '../../environments/environment';
+import {MaterialModule} from '../material-module/material-module';
 
 @Component({
   selector: 'app-userinformation',
-  imports: [MatCard, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, MatCardContent, MatList, MatListItem],
+  imports: [MaterialModule],
   templateUrl: './userinformation.html',
   styleUrl: './userinformation.css'
 })

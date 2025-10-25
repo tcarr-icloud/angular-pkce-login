@@ -1,19 +1,11 @@
 import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardSubtitle,
-  MatCardTitle,
-  MatCardTitleGroup
-} from '@angular/material/card';
-import {MatList, MatListItem, MatListItemLine, MatListItemTitle} from '@angular/material/list';
 import {environment} from '../../environments/environment';
+import {MaterialModule} from '../material-module/material-module';
 
 @Component({
   selector: 'app-client',
-  imports: [MatCard, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, MatCardContent, MatList, MatListItem, MatListItemLine, MatListItemTitle,],
+  imports: [MaterialModule],
   templateUrl: './client.html',
   styleUrl: './client.css'
 })

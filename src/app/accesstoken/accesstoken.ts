@@ -1,17 +1,13 @@
 import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
-import {MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardTitleGroup} from '@angular/material/card';
+import {MaterialModule} from '../material-module/material-module';
 import {FormsModule} from '@angular/forms';
 import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-accesstoken',
   imports: [
-    MatCard,
-    MatCardTitle,
-    MatCardContent,
-    MatCardHeader,
-    MatCardTitleGroup,
+    MaterialModule,
     FormsModule,
     AsyncPipe
   ],

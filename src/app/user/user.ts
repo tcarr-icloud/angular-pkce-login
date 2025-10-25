@@ -5,19 +5,12 @@ import {AuthenticatedService} from '../authenticated-service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UserDTO} from '../interfaces/userDTO';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardTitle,
-  MatCardTitleGroup
-} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
-import {MatList, MatListItem, MatListItemLine, MatListItemTitle} from '@angular/material/list';
+import {MaterialModule} from '../material-module/material-module';
 
 @Component({
   selector: 'app-user',
-  imports: [MatCard, FormsModule, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatListItem, MatList, MatListItemLine, MatListItemTitle, RouterLink,],
+  imports: [FormsModule, RouterLink, MaterialModule],
   templateUrl: './user.html',
   styleUrl: './user.css'
 })

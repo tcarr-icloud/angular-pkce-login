@@ -1,17 +1,16 @@
 import {Component, inject, signal} from '@angular/core';
 import {JsonPipe} from "@angular/common";
-import {MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardTitleGroup} from "@angular/material/card";
-import {MatList, MatListItem, MatListItemLine, MatListItemTitle} from "@angular/material/list";
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {AuthenticatedService} from '../authenticated-service';
 import {UserrepresentationDTO} from '../interfaces/userrepresentationDTO';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {MaterialModule} from '../material-module/material-module';
 
 @Component({
   selector: 'app-user-representation',
-  imports: [JsonPipe, MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardTitleGroup, MatList, MatListItem, MatListItemLine, MatListItemTitle],
+  imports: [JsonPipe, MaterialModule],
   templateUrl: './user-representation.html',
   styleUrl: './user-representation.css'
 })

@@ -1,22 +1,12 @@
 import {Component, inject, signal} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
-import {MatListItemLine, MatListItemTitle, MatListModule} from '@angular/material/list';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardTitle,
-  MatCardTitleGroup
-} from '@angular/material/card';
 import {environment} from '../../environments/environment';
 import {RouterLink} from '@angular/router';
 import {UserDTO} from '../interfaces/userDTO';
+import {MaterialModule} from '../material-module/material-module';
 
 @Component({
-  selector: 'app-users',
-  imports: [MatListModule, MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup, MatCardTitle, RouterLink, MatListItemTitle, MatListItemLine],
-  templateUrl: './users.html',
-  styleUrl: './users.css'
+  selector: 'app-users', imports: [RouterLink, MaterialModule], templateUrl: './users.html', styleUrl: './users.css'
 })
 export class Users {
   users: UserDTO[] = [];

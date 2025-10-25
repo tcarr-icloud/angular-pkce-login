@@ -1,20 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {MatToolbar} from '@angular/material/toolbar';
 import {RouterLink} from '@angular/router';
-import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
-import {MatButton} from '@angular/material/button';
 import {AuthenticatedService} from '../authenticated-service';
+import {MaterialModule} from '../material-module/material-module';
 
 @Component({
   selector: 'app-toolbar',
-  imports: [
-    MatToolbar,
-    RouterLink,
-    MatMenu,
-    MatMenuTrigger,
-    MatButton,
-    MatMenuItem
-  ],
+  imports: [RouterLink, MaterialModule],
   templateUrl: './toolbar.html',
   styleUrl: './toolbar.css'
 })
