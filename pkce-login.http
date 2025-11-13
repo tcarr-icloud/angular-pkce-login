@@ -15,5 +15,6 @@ GET localhost:8080/api/keycloak/users
 Authorization: Bearer {{access_token}}
 
 ###
+GET http://keycloak:8080/realms/development/.well-known/openid-configuration
 
-
+###

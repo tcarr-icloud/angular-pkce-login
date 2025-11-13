@@ -5,6 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatListModule,
     MatToolbarModule,
     MatMenuModule,
-
+    MatFormFieldModule
     // MatAutocompleteModule,
     // MatBadgeModule,
     // MatBottomSheetModule,

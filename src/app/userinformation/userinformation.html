@@ -1,16 +1,38 @@
-<mat-card class="userinfo-card">
+<mat-card class="resource-card">
   <mat-card-header>
     <mat-card-title-group>
       <mat-card-title>Users Information</mat-card-title>
-      <mat-card-subtitle>The user information is used to display the user information of the current user.
-      </mat-card-subtitle>
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
-    <mat-list>
-      <mat-list-item><span matListItemTitle>Sub: {{ userInformation.sub }}</span></mat-list-item>
-      <mat-list-item><span matListItemTitle>Email verified: {{ userInformation.email_verified }}</span></mat-list-item>
-      <mat-list-item><span matListItemTitle>Preferred username: {{ userInformation.preferred_username }}</span>
+    <mat-list class="horizontal-wrap-list">
+      <mat-list-item>
+        <span matListItemTitle>Email</span>
+        <span matListItemLine>{{ userInformation.email }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Email Verified</span>
+        <span matListItemLine>{{ userInformation.email_verified }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Family Name</span>
+        <span matListItemLine>{{ userInformation.family_name }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Given Name</span>
+        <span matListItemLine>{{ userInformation.given_name }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Name</span>
+        <span matListItemLine>{{ userInformation.name }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Preferred Username</span>
+        <span matListItemLine>{{ userInformation.preferred_username }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Sub</span>
+        <span matListItemLine>{{ userInformation.sub }}</span>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

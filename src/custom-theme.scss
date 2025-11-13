@@ -5,7 +5,9 @@ html {
   @include mat.theme((
     color: mat.$violet-palette,
     typography: Noto Sans,
-    density: 0
+    density:(
+      scale:0
+    )
   ))
 }
 
@@ -13,6 +15,20 @@ body {
   font: var(--mat-sys-body-medium);
   color: var(--mat-sys-on-surface);
   background-color: var(--mat-sys-surface-container);
+}
+
+:root {
+  @include mat.form-field-overrides((
+    outlined-input-text-color: white,
+    outlined-label-text-color: white,
+    outlined-outline-color: gray,
+
+    outlined-focus-label-text-color: white,
+    outlined-focus-outline-color: gray,
+
+
+
+  ));
 }
 
 .feature-container {
@@ -60,7 +76,7 @@ body {
 }
 
 .resource-card {
-  min-width: 250px;
+  width: 60%;
   margin: 10px;
   background: linear-gradient(45deg, #f0060b, #7702ff);
   color: white;

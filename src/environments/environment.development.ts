@@ -1,10 +1,10 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/api',
+  apiUrl: 'http://localhost:8081/api',
   oidc: {
-    realm: 'demo',
-    authority: 'http://localhost:9090/realms/demo',
+    realm: 'development',
+    authority: 'http://keycloak:8080/realms/development',
     clientId: 'spa-client',
-    userinfo_endpoint: 'http://localhost:9090/realms/demo/protocol/openid-connect/userinfo',
+    userinfo_endpoint: 'http://keycloak:8080/realms/development/protocol/openid-connect/userinfo',
   }
 };

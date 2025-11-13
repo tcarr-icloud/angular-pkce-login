@@ -3,10 +3,12 @@ import {OidcSecurityService} from 'angular-auth-oidc-client';
 import {Userinfo} from './userinfo';
 import {environment} from '../../environments/environment';
 import {MaterialModule} from '../material-module/material-module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {useRadioGroup} from '@mui/material';
 
 @Component({
   selector: 'app-userinformation',
-  imports: [MaterialModule],
+  imports: [MaterialModule, ReactiveFormsModule],
   templateUrl: './userinformation.html',
   styleUrl: './userinformation.css'
 })
@@ -31,5 +33,4 @@ export class Userinformation {
       });
     });
   }
-
 }

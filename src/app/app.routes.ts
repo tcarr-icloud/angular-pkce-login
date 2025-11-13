@@ -8,10 +8,12 @@ import {Client} from './client/client';
 import {Role} from './role/role';
 import {User} from './user/user';
 import {UserRepresentation} from './user-representation/user-representation';
+import {EndpointConfiguration} from './endpoint-configuration/endpoint-configuration';
 
 export const routes: Routes = [
   {path: '', component: Home},
   {path: 'home', component: Home},
+  {path: 'authwellknownwendpoints', component: EndpointConfiguration, canActivate: [authenticatedGuard]},
   {path: 'userinformation', component: Userinformation, canActivate: [authenticatedGuard]},
   {path: 'accesstoken', component: Accesstoken, canActivate: [authenticatedGuard]},
   {path: 'user/:id', component: User, canActivate: [authenticatedGuard]},

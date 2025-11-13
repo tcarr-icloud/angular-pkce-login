@@ -3,13 +3,15 @@ import {AuthenticatedService} from '../authenticated-service';
 import {MaterialModule} from '../material-module/material-module';
 import {FormsModule} from '@angular/forms';
 import {AsyncPipe} from '@angular/common';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 
 @Component({
   selector: 'app-accesstoken',
   imports: [
     MaterialModule,
     FormsModule,
-    AsyncPipe
+    AsyncPipe,
+    CdkTextareaAutosize
   ],
   templateUrl: './accesstoken.html',
   styleUrl: './accesstoken.css'
