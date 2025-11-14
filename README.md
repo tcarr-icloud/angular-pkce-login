@@ -17,7 +17,7 @@ This project is a modern Angular 20 application that provides secure authenticat
 - **State Management**: RxJS 7.8.0
 - **Testing**: Karma + Jasmine
 
-## Prerequisites
+## Requirements
 
 - Node.js (LTS version recommended)
 - npm package manager
