@@ -1,9 +1,8 @@
-# PKCE Login
+# angular-pkce-login
 
-An Angular application implementing OAuth 2.0 authentication with PKCE (Proof Key for Code Exchange) flow using OpenID Connect.
+**Requires** the [keycloak-resource](http://github.com/tcarr-icloud/keycloak-resource) service.
 
 ## Overview
-
 This project is a modern Angular 20 application that provides secure authentication using the PKCE authorization flow. It leverages the `angular-auth-oidc-client` library to handle OAuth 2.0 and OpenID Connect authentication protocols.
 
 ## Tech Stack
@@ -41,14 +40,6 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 ## Testing
 
 Run `npm test` to execute the unit tests via Karma test runner.
-
-## Features
-
-- **PKCE Authentication Flow**: Secure OAuth 2.0 authorization using PKCE
-- **Modern Angular Architecture**: Built with Angular 20 standalone components
-- **Material Design**: Consistent UI using Angular Material and MUI components
-- **Type Safety**: Full TypeScript support for enhanced development experience
-- **Testing Setup**: Pre-configured Karma and Jasmine for unit testing
 
 ## Code Style
 
