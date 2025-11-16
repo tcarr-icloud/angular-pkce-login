@@ -1,8 +1,8 @@
 @if (authenticatedService.isAuthenticated()) {
   <p>Welcome {{ authenticatedService.authenticatedUserData().preferred_username }}</p>
-  <app-userinformation></app-userinformation>
-  <app-accesstoken></app-accesstoken>
-  <app-endpoint-configuration></app-endpoint-configuration>
+  <app-userinformation class="app-feature-container"></app-userinformation>
+  <app-endpoint-configuration class="app-feature-container"></app-endpoint-configuration>
+  <app-accesstoken class="app-feature-container"></app-accesstoken>
 } @else {
   <p>Welcome guest</p>
 }

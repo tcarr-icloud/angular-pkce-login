@@ -3,3 +3,7 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+.app-feature-container {
+  margin-bottom: 20px;
+}
