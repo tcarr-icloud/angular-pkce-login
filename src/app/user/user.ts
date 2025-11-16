@@ -37,4 +37,7 @@ export class User {
     });
   }
 
+  protected addUser() {
+
+  }
 }

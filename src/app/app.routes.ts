@@ -9,6 +9,7 @@ import {Role} from './role/role';
 import {User} from './user/user';
 import {UserRepresentation} from './user-representation/user-representation';
 import {EndpointConfiguration} from './endpoint-configuration/endpoint-configuration';
+import {UserEditor} from './user-editor/user-editor';
 
 export const routes: Routes = [
   {path: '', component: Home},
@@ -21,5 +22,6 @@ export const routes: Routes = [
   {path: 'users', component: Users, canActivate: [authenticatedGuard]},
   {path: 'clients', component: Client, canActivate: [authenticatedGuard]},
   {path: 'roles', component: Role, canActivate: [authenticatedGuard]},
+  {path: 'user-edit/:id', component: UserEditor, canActivate: [authenticatedGuard]},
 ];
 

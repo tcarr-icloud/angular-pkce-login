@@ -6,7 +6,8 @@ import {UserDTO} from '../interfaces/userDTO';
 import {MaterialModule} from '../material-module/material-module';
 
 @Component({
-  selector: 'app-users', imports: [RouterLink, MaterialModule], templateUrl: './users.html', styleUrl: './users.css'
+  selector: 'app-users',
+  imports: [RouterLink, MaterialModule], templateUrl: './users.html', styleUrl: './users.css'
 })
 export class Users {
   users: UserDTO[] = [];
