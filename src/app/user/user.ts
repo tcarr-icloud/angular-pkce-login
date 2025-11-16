@@ -22,9 +22,8 @@ export class User {
 
   constructor() {
     let userId = this.route.snapshot.params['id'];
-    this.authenticatedService.getAccessToken()
-      .subscribe(accessToken => {
-        this.getUserById(accessToken, userId)
+    this.authenticatedService.getAccessToken().subscribe(token => {
+        this.getUserById(token, userId)
           .subscribe((data) => {
             this.userDto.set(data);
           });

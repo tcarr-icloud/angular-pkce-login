@@ -3,16 +3,26 @@
     <mat-card class="feature-list-card">
       <mat-card-header>
         <mat-card-title-group>
-          <a [routerLink]="['/user', user.id]" matCardTitle>{{ user.username }}</a>
+          <a [routerLink]="['/user-edit', user.id]" matCardTitle>{{ user.id }}</a>
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
           <mat-list-item>
+            <span matListItemTitle>Id</span>
+            <a [routerLink]="['/user-edit', user.id]" matListItemLine>
+              {{ user.id }}
+            </a>
+          </mat-list-item>
+          <mat-list-item>
             <span matListItemTitle>Keycloak Id</span>
             <a [routerLink]="['/keycloak/user', user?.keycloakUserId]" matListItemLine>
               {{ user.keycloakUserId }}
             </a>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Username</span>
+            <span matListItemLine>{{ user.username }}</span>
           </mat-list-item>
           <mat-list-item>
             <span matListItemTitle>Email</span>
