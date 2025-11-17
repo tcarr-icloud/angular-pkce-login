@@ -1,11 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RoleDTO} from '../interfaces/role-dto';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {AuthenticatedService} from '../authenticated-service';
 import {environment} from '../../environments/environment';
 import {Location} from '@angular/common';
 import {MaterialModule} from '../material-module/material-module';
+import {RoleDto} from '../interfaces/role-dto';
 
 @Component({
   selector: 'app-roles-editor',
@@ -14,9 +14,8 @@ import {MaterialModule} from '../material-module/material-module';
   styleUrl: './role-editor.css'
 })
 export class RoleEditor {
-  private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
-  private route: ActivatedRoute = inject(ActivatedRoute);
-  roleDto: RoleDTO = null as unknown as RoleDTO;
+  roleDto: RoleDto = {} as RoleDto;
+
   idControl = new FormControl('');
   nameControl = new FormControl('');
   descriptionControl = new FormControl('');
@@ -26,6 +25,9 @@ export class RoleEditor {
   clientRoleControl = new FormControl(false);
   containerIdControl = new FormControl('');
   attributesControl = new FormControl('');
+
+  private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+  private route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor(private location: Location) {
   }
@@ -39,16 +41,17 @@ export class RoleEditor {
             'Authorization': `Bearer ${token}`
           }
         }).then(async response => {
-          response.json().then(data => {
-            this.idControl.setValue(data.id);
-            this.nameControl.setValue(data.name);
-            this.descriptionControl.setValue(data.description);
-            this.scopeParamRequiredControl.setValue(data.scopeParamRequired);
-            this.compositeControl.setValue(data.composite);
-            this.compositesControl.setValue(data.composites);
-            this.clientRoleControl.setValue(data.clientRole);
-            this.containerIdControl.setValue(data.containerId);
-            this.attributesControl.setValue(data.attributes);
+          response.json().then((data: RoleDto) => {
+            this.roleDto = data;
+            this.idControl.setValue(this.roleDto.id);
+            this.nameControl.setValue(this.roleDto.name);
+            this.descriptionControl.setValue(this.roleDto.description);
+            this.scopeParamRequiredControl.setValue(this.roleDto.scopeParamRequired);
+            this.compositeControl.setValue(this.roleDto.composite);
+            this.compositesControl.setValue(this.roleDto.composites);
+            this.clientRoleControl.setValue(this.roleDto.clientRole);
+            this.containerIdControl.setValue(this.roleDto.containerId);
+            this.attributesControl.setValue(this.roleDto.attributes);
           });
         });
       });
@@ -60,12 +63,5 @@ export class RoleEditor {
 
   protected goBack() {
     this.location.back();
-  }
-
-  private buildFormFromDto<T extends object>(dto: T): FormGroup {
-    return new FormGroup(Object.entries(dto).reduce((acc, [key, value]) => {
-      acc[key] = new FormControl(value);
-      return acc;
-    }, {} as Record<string, FormControl>));
   }
 }

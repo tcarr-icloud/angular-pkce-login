@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material-module/material-module';
 import {environment} from '../../environments/environment';
 import {AuthenticatedService} from '../authenticated-service';
@@ -14,20 +14,23 @@ import {Location} from '@angular/common';
   styleUrl: './user-editor.css'
 })
 export class UserEditor {
-  userDtoFormGroup = new FormGroup({
-    id: new FormControl(0),
-    keycloakUserId: new FormControl(''),
-    username: new FormControl(''),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl(''),
-    enabled: new FormControl(true)
-  });
-  userDto: UserDto = null as unknown as UserDto;
-  private route: ActivatedRoute = inject(ActivatedRoute);
+  userDto: UserDto = {} as UserDto;
+
+  idControl = new FormControl(0);
+  keycloakUserIdControl = new FormControl('');
+  usernameControl = new FormControl('');
+  firstNameControl = new FormControl('');
+  lastNameControl = new FormControl('');
+  emailControl = new FormControl('');
+  enabledControl = new FormControl(true);
+
   private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+  private route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor(private location: Location) {
+  }
+
+  ngOnInit() {
     let userId = this.route.snapshot.params['id'];
     if (userId) {
       this.authenticatedService.getAccessToken().subscribe(token => {
@@ -36,8 +39,16 @@ export class UserEditor {
             'Authorization': `Bearer ${token}`
           }
         }).then(async response => {
-          this.userDto = await response.json();
-          this.userDtoFormGroup.setValue(this.userDto);
+          response.json().then((data: UserDto) => {
+            this.userDto = data;
+            this.idControl.setValue(this.userDto.id);
+            this.keycloakUserIdControl.setValue(this.userDto.keycloakUserId);
+            this.usernameControl.setValue(this.userDto.username);
+            this.firstNameControl.setValue(this.userDto.firstName);
+            this.lastNameControl.setValue(this.userDto.lastName);
+            this.emailControl.setValue(this.userDto.email);
+            this.enabledControl.setValue(this.userDto.enabled);
+          });
         });
       });
     }
@@ -50,7 +61,16 @@ export class UserEditor {
           'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json'
         }, body: JSON.stringify(data)
       }).then(async response => {
-        this.userDtoFormGroup.setValue(await response.json());
+        response.json().then((data: UserDto) => {
+          this.userDto = data;
+          this.idControl.setValue(this.userDto.id);
+          this.keycloakUserIdControl.setValue(this.userDto.keycloakUserId);
+          this.usernameControl.setValue(this.userDto.username);
+          this.firstNameControl.setValue(this.userDto.firstName);
+          this.lastNameControl.setValue(this.userDto.lastName);
+          this.emailControl.setValue(this.userDto.email);
+          this.enabledControl.setValue(this.userDto.enabled);
+        });
       });
     });
   }
@@ -60,6 +80,6 @@ export class UserEditor {
   }
 
   protected save() {
-    this.postUser(<UserDto>this.userDtoFormGroup.value)
+    this.postUser(this.userDto);
   }
 }

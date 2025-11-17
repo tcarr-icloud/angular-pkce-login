@@ -1,190 +1,186 @@
 <mat-card class="resource-card">
-  <mat-card-header>
-    <mat-card-title-group>
-    </mat-card-title-group>
-  </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="clientDtoFormGroup">
+    <mat-card-actions>
+      <button matButton="tonal" (click)="save()">Save</button>
+      <button matButton="tonal" (click)="goBack()">Cancel</button>
+    </mat-card-actions>
+    <form>
       <mat-form-field appearance="outline">
         <mat-label>id</mat-label>
-        <input matInput formControlName="id" readonly>
+        <input matInput [formControl]="idControl" readonly>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>clientId</mat-label>
-        <input matInput formControlName="clientId" readonly>
+        <input matInput [formControl]="clientIdControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>name</mat-label>
-        <input matInput formControlName="name" readonly>
+        <input matInput [formControl]="nameControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>description</mat-label>
-        <input matInput formControlName="description" readonly>
+        <input matInput [formControl]="descriptionControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>type</mat-label>
-        <input matInput formControlName="type" readonly>
+        <input matInput [formControl]="typeControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>rootUrl</mat-label>
-        <input matInput formControlName="rootUrl" readonly>
+        <input matInput [formControl]="rootUrlControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>adminUrl</mat-label>
-        <input matInput formControlName="adminUrl" readonly>
+        <input matInput [formControl]="adminUrlControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>baseUrl</mat-label>
-        <input matInput formControlName="baseUrl" readonly>
+        <input matInput [formControl]="baseUrlControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>surrogateAuthRequired</mat-label>
-        <input matInput formControlName="surrogateAuthRequired" readonly>
+        <input matInput [formControl]="surrogateAuthRequiredControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>enabled</mat-label>
-        <input matInput formControlName="enabled" readonly>
+        <input matInput [formControl]="enabledControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>alwaysDisplayInConsole</mat-label>
-        <input matInput formControlName="alwaysDisplayInConsole" readonly>
+        <input matInput [formControl]="alwaysDisplayInConsoleControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>clientAuthenticatorType</mat-label>
-        <input matInput formControlName="clientAuthenticatorType" readonly>
+        <input matInput [formControl]="clientAuthenticatorTypeControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>secret</mat-label>
-        <input matInput formControlName="secret" readonly>
+        <input matInput [formControl]="secretControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>registrationAccessToken</mat-label>
-        <input matInput formControlName="registrationAccessToken" readonly>
+        <input matInput [formControl]="registrationAccessTokenControl">
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>defaultRoles</mat-label>
-        <input matInput formControlName="defaultRoles" readonly>
-      </mat-form-field>
+      <!--      <mat-form-field appearance="outline">-->
+      <!--        <mat-label>defaultRoles</mat-label>-->
+      <!--        <input matInput [formControl]="defaultRolesControl" readonly>-->
+      <!--      </mat-form-field>-->
       <mat-form-field appearance="outline">
         <mat-label>redirectUris</mat-label>
-        <input matInput formControlName="redirectUris" readonly>
+        <input matInput [formControl]="redirectUrisControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>webOrigins</mat-label>
-        <input matInput formControlName="webOrigins" readonly>
+        <input matInput [formControl]="webOriginsControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>notBefore</mat-label>
-        <input matInput formControlName="notBefore" readonly>
+        <input matInput [formControl]="notBeforeControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>bearerOnly</mat-label>
-        <input matInput formControlName="bearerOnly" readonly>
+        <input matInput [formControl]="bearerOnlyControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>consentRequired</mat-label>
-        <input matInput formControlName="consentRequired" readonly>
+        <input matInput [formControl]="consentRequiredControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>standardFlowEnabled</mat-label>
-        <input matInput formControlName="standardFlowEnabled" readonly>
+        <input matInput [formControl]="standardFlowEnabledControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>implicitFlowEnabled</mat-label>
-        <input matInput formControlName="implicitFlowEnabled" readonly>
+        <input matInput [formControl]="implicitFlowEnabledControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>directAccessGrantsEnabled</mat-label>
-        <input matInput formControlName="directAccessGrantsEnabled" readonly>
+        <input matInput [formControl]="directAccessGrantsEnabledControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>serviceAccountsEnabled</mat-label>
-        <input matInput formControlName="serviceAccountsEnabled" readonly>
+        <input matInput [formControl]="serviceAccountsEnabledControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>authorizationServicesEnabled</mat-label>
-        <input matInput formControlName="authorizationServicesEnabled" readonly>
+        <input matInput [formControl]="authorizationServicesEnabledControl">
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>directGrantsOnly</mat-label>
-        <input matInput formControlName="directGrantsOnly" readonly>
-      </mat-form-field>
+      <!--      <mat-form-field appearance="outline">-->
+      <!--        <mat-label>directGrantsOnly</mat-label>-->
+      <!--        <input matInput [formControl]="directGrantsOnly" readonly>-->
+      <!--      </mat-form-field>-->
       <mat-form-field appearance="outline">
         <mat-label>publicClient</mat-label>
-        <input matInput formControlName="publicClient" readonly>
+        <input matInput [formControl]="publicClientControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>frontchannelLogout</mat-label>
-        <input matInput formControlName="frontchannelLogout" readonly>
+        <input matInput [formControl]="frontchannelLogoutControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>protocol</mat-label>
-        <input matInput formControlName="protocol" readonly>
+        <input matInput [formControl]="protocolControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>attributes</mat-label>
-        <input matInput formControlName="attributes" readonly>
+        <input matInput [formControl]="attributesControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>authenticationFlowBindingOverrides</mat-label>
-        <input matInput formControlName="authenticationFlowBindingOverrides" readonly>
+        <input matInput [formControl]="authenticationFlowBindingOverridesControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>fullScopeAllowed</mat-label>
-        <input matInput formControlName="fullScopeAllowed" readonly>
+        <input matInput [formControl]="fullScopeAllowedControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>nodeReRegistrationTimeout</mat-label>
-        <input matInput formControlName="nodeReRegistrationTimeout" readonly>
+        <input matInput [formControl]="nodeReRegistrationTimeoutControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>registeredNodes</mat-label>
-        <input matInput formControlName="registeredNodes" readonly>
+        <input matInput [formControl]="registeredNodesControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>protocolMappers</mat-label>
-        <input matInput formControlName="protocolMappers" readonly>
+        <input matInput [formControl]="protocolMappersControl">
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>clientTemplate</mat-label>
-        <input matInput formControlName="clientTemplate" readonly>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>useTemplateConfig</mat-label>
-        <input matInput formControlName="useTemplateConfig" readonly>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>useTemplateScope</mat-label>
-        <input matInput formControlName="useTemplateScope" readonly>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>useTemplateMappers</mat-label>
-        <input matInput formControlName="useTemplateMappers" readonly>
-      </mat-form-field>
+      <!--&lt;!&ndash;      <mat-form-field appearance="outline">&ndash;&gt;-->
+      <!--&lt;!&ndash;        <mat-label>clientTemplate</mat-label>&ndash;&gt;-->
+      <!--&lt;!&ndash;        <input matInput [formControl]="clientTemplateControl" readonly>&ndash;&gt;-->
+      <!--&lt;!&ndash;      </mat-form-field>&ndash;&gt;-->
+      <!--      <mat-form-field appearance="outline">-->
+      <!--        <mat-label>useTemplateConfig</mat-label>-->
+      <!--        <input matInput [formControl]="useTemplateConfigControl" readonly>-->
+      <!--      </mat-form-field>-->
+      <!--      <mat-form-field appearance="outline">-->
+      <!--        <mat-label>useTemplateScope</mat-label>-->
+      <!--        <input matInput [formControl]="useTemplateScopeControl" readonly>-->
+      <!--      </mat-form-field>-->
+      <!--      <mat-form-field appearance="outline">-->
+      <!--        <mat-label>useTemplateMappers</mat-label>-->
+      <!--        <input matInput [formControl]="useTemplateMappersControl" readonly>-->
+      <!--      </mat-form-field>-->
       <mat-form-field appearance="outline">
         <mat-label>defaultClientScopes</mat-label>
-        <input matInput formControlName="defaultClientScopes" readonly>
+        <input matInput [formControl]="defaultClientScopesControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>optionalClientScopes</mat-label>
-        <input matInput formControlName="optionalClientScopes" readonly>
+        <input matInput [formControl]="optionalClientScopesControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>authorizationSettings</mat-label>
-        <input matInput formControlName="authorizationSettings" readonly>
+        <input matInput [formControl]="authorizationSettingsControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>access</mat-label>
-        <input matInput formControlName="access" readonly>
+        <input matInput [formControl]="accessControl">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>origin</mat-label>
-        <input matInput formControlName="origin" readonly>
+        <input matInput [formControl]="originControl">
       </mat-form-field>
     </form>
   </mat-card-content>
-  <mat-card-actions>
-    <button matButton="tonal" (click)="save()">Save</button>
-    <button matButton="tonal" (click)="goBack()">Cancel</button>
-  </mat-card-actions>
 </mat-card>

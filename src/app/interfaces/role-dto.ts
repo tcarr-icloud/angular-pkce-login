@@ -1,4 +1,4 @@
-export interface RoleDTO {
+export interface RoleDto {
   id: string;
   name: string;
   description: string;
