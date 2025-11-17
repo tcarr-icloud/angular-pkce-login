@@ -1,4 +1,4 @@
-# angular-pkce-login
+# angular-keycloak-resource
 
 **Requires** the [keycloak-resource](http://github.com/tcarr-icloud/keycloak-resource) service.
 

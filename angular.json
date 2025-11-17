@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pkce-login": {
+    "angular-keycloak-resource": {
       "projectType": "application",
       "schematics": {},
       "root": "",
