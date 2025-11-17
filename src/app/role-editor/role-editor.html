@@ -1,1 +1,71 @@
-<p>role-editor works!</p>
+<mat-card class="resource-card">
+  <mat-card-header>
+    <mat-card-title-group>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="roleDtoFormGroup">
+      <mat-list>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>id</mat-label>
+            <input matInput formControlName="id" readonly>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>description</mat-label>
+            <input matInput formControlName="description">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>scopeParamRequired</mat-label>
+            <input matInput formControlName="scopeParamRequired">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>composite</mat-label>
+            <input matInput formControlName="composite">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>composites</mat-label>
+            <input matInput formControlName="composites">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>clientRole</mat-label>
+            <input matInput formControlName="clientRole">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>containerId</mat-label>
+            <input matInput formControlName="containerId">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>attributes</mat-label>
+            <input matInput formControlName="attributes">
+          </mat-form-field>
+        </div>
+
+      </mat-list>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button matButton="tonal" (click)="save()">Save</button>
+    <button matButton="tonal" (click)="goBack()">Cancel</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,7 @@
+.mat-mdc-card.mdc-card.resource-card {
+  width: 425px;
+}
+
+.mat-mdc-form-field {
+  width: -webkit-fill-available;
+}

@@ -4,7 +4,11 @@
       <mat-card-header>
         <mat-card-title-group>
           <mat-card-title>{{ role.name }}</mat-card-title>
-          <mat-card-subtitle>{{ role.id }}</mat-card-subtitle>
+          <mat-card-subtitle>
+            <a [routerLink]="['/role', role.name]" matListItemLine>
+            {{ role.id }}
+          </a>
+          </mat-card-subtitle>
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>

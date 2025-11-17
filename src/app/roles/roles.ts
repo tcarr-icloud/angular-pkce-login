@@ -2,14 +2,15 @@ import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
 import {environment} from '../../environments/environment';
 import {MaterialModule} from '../material-module/material-module';
+import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-role',
-  imports: [MaterialModule],
-  templateUrl: './role.html',
-  styleUrl: './role.css'
+  selector: 'app-roles',
+  imports: [MaterialModule, RouterLink],
+  templateUrl: './roles.html',
+  styleUrl: './roles.css'
 })
-export class Role {
+export class Roles {
   roles: any[] = [];
   protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
 

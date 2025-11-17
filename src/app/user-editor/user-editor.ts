@@ -1,29 +1,20 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {ReactiveFormsModule, FormControl, FormBuilder, FormGroup, FormsModule} from '@angular/forms';
+import {Component, inject} from '@angular/core';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material-module/material-module';
 import {environment} from '../../environments/environment';
 import {AuthenticatedService} from '../authenticated-service';
-import {UserDTO} from '../interfaces/userDTO';
-import {ActivatedRoute, RouterLink} from '@angular/router';
-import {User} from '../user/user';
+import {UserDto} from '../interfaces/user-dto';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-user-editor',
-  imports: [
-    RouterLink,
-    ReactiveFormsModule,
-    MaterialModule,
-    FormsModule,
-  ],
+  imports: [ReactiveFormsModule, MaterialModule, FormsModule],
   templateUrl: './user-editor.html',
   styleUrl: './user-editor.css'
 })
 export class UserEditor {
-  private userDto:UserDTO = null as unknown as UserDTO;
-  private route: ActivatedRoute = inject(ActivatedRoute);
-  private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
-
-  myForm = new FormGroup({
+  userDtoFormGroup = new FormGroup({
     id: new FormControl(0),
     keycloakUserId: new FormControl(''),
     username: new FormControl(''),
@@ -32,8 +23,11 @@ export class UserEditor {
     email: new FormControl(''),
     enabled: new FormControl(true)
   });
+  userDto: UserDto = null as unknown as UserDto;
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
 
-  constructor() {
+  constructor(private location: Location) {
     let userId = this.route.snapshot.params['id'];
     if (userId) {
       this.authenticatedService.getAccessToken().subscribe(token => {
@@ -43,28 +37,29 @@ export class UserEditor {
           }
         }).then(async response => {
           this.userDto = await response.json();
-          this.myForm.setValue(this.userDto);
+          this.userDtoFormGroup.setValue(this.userDto);
         });
       });
     }
   }
 
-  protected save() {
-    this.postUser(<UserDTO>this.myForm.value)
-  }
-
-  postUser(data: UserDTO): void {
+  postUser(data: UserDto): void {
     this.authenticatedService.getAccessToken().subscribe(token => {
       fetch(environment.apiUrl + '/users', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+        method: 'POST', headers: {
+          'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json'
+        }, body: JSON.stringify(data)
       }).then(async response => {
-       this.myForm.setValue(await response.json());
+        this.userDtoFormGroup.setValue(await response.json());
       });
     });
+  }
+
+  goBack() {
+    this.location.back();
+  }
+
+  protected save() {
+    this.postUser(<UserDto>this.userDtoFormGroup.value)
   }
 }

@@ -3,14 +3,14 @@
     <mat-card class="feature-list-card">
       <mat-card-header>
         <mat-card-title-group>
-          <a [routerLink]="['/user-edit', user.id]" matCardTitle>{{ user.id }}</a>
+          <a [routerLink]="['/user', user.id]" matCardTitle>{{ user.id }}</a>
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
           <mat-list-item>
             <span matListItemTitle>Id</span>
-            <a [routerLink]="['/user-edit', user.id]" matListItemLine>
+            <a [routerLink]="['/user', user.id]" matListItemLine>
               {{ user.id }}
             </a>
           </mat-list-item>

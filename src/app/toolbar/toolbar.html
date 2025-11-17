@@ -49,17 +49,17 @@
   <span class="spacer"></span>
   @if (authenticatedService.isAuthenticated()) {
     @if (showAddClientButton) {
-      <button [routerLink]="['/client-edit', 0]" mat-button>Add Client</button>
+      <button [routerLink]="['/clients', 0]" mat-button>Add Client</button>
     } @else {
       <button [routerLink]="['/clients']" mat-button>Clients</button>
     }
     @if (showAddUserButton) {
-      <button [routerLink]="['/user-edit', 0]" mat-button>Add User</button>
+      <button [routerLink]="['/user', 0]" mat-button>Add User</button>
     } @else {
       <button [routerLink]="['/users']" mat-button>Users</button>
     }
     @if (showAddRoleButton) {
-      <button [routerLink]="['/role-edit', 0]" mat-button>Add Role</button>
+      <button [routerLink]="['/roles', 0]" mat-button>Add Role</button>
     } @else {
       <button [routerLink]="['/roles']" mat-button>Roles</button>
     }

@@ -3,7 +3,7 @@ import {JsonPipe} from "@angular/common";
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {AuthenticatedService} from '../authenticated-service';
-import {UserrepresentationDTO} from '../interfaces/userrepresentationDTO';
+import {UserrepresentationDto} from '../interfaces/userrepresentation-dto';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {MaterialModule} from '../material-module/material-module';
@@ -15,7 +15,7 @@ import {MaterialModule} from '../material-module/material-module';
   styleUrl: './user-representation.css'
 })
 export class UserRepresentation {
-  userKeycloakDto = signal(null as UserrepresentationDTO | null);
+  userKeycloakDto = signal(null as UserrepresentationDto | null);
   private http: HttpClient = inject(HttpClient);
   private route: ActivatedRoute = inject(ActivatedRoute);
   private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
@@ -31,8 +31,8 @@ export class UserRepresentation {
       });
   }
 
-  getKeycloakUserById(accessToken: string, id: string): Observable<UserrepresentationDTO> {
-    return this.http.get<UserrepresentationDTO>(environment.apiUrl + '/keycloak/users/' + id, {
+  getKeycloakUserById(accessToken: string, id: string): Observable<UserrepresentationDto> {
+    return this.http.get<UserrepresentationDto>(environment.apiUrl + '/keycloak/users/' + id, {
       headers: {'Authorization': `Bearer ${accessToken}`}
     });
   }

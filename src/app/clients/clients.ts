@@ -2,14 +2,15 @@ import {Component, inject} from '@angular/core';
 import {AuthenticatedService} from '../authenticated-service';
 import {environment} from '../../environments/environment';
 import {MaterialModule} from '../material-module/material-module';
+import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-client',
-  imports: [MaterialModule],
-  templateUrl: './client.html',
-  styleUrl: './client.css'
+  selector: 'app-clients',
+  imports: [MaterialModule, RouterLink],
+  templateUrl: './clients.html',
+  styleUrl: './clients.css'
 })
-export class Client {
+export class Clients {
   clients: any[] = [];
   protected readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
 

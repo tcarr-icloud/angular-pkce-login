@@ -1,14 +1,10 @@
 import {Component, inject} from '@angular/core';
 import {AuthWellKnownEndpoints, OidcSecurityService} from 'angular-auth-oidc-client';
-import {JsonPipe} from '@angular/common';
 import {MaterialModule} from '../material-module/material-module';
 
 @Component({
   selector: 'app-endpoint-configuration',
-  imports: [
-    MaterialModule,
-    JsonPipe
-  ],
+  imports: [MaterialModule],
   templateUrl: './endpoint-configuration.html',
   styleUrl: './endpoint-configuration.css'
 })
