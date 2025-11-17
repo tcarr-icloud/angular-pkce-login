@@ -14,12 +14,23 @@ import {MaterialModule} from '../material-module/material-module';
   styleUrl: './role-editor.css'
 })
 export class RoleEditor {
-  roleDtoFormGroup: FormGroup = new FormGroup({});
-  roleDto: RoleDTO = null as unknown as RoleDTO;
-  private route: ActivatedRoute = inject(ActivatedRoute);
   private readonly authenticatedService: AuthenticatedService = inject(AuthenticatedService);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  roleDto: RoleDTO = null as unknown as RoleDTO;
+  idControl = new FormControl('');
+  nameControl = new FormControl('');
+  descriptionControl = new FormControl('');
+  scopeParamRequiredControl = new FormControl(false);
+  compositeControl = new FormControl(true);
+  compositesControl = new FormControl('');
+  clientRoleControl = new FormControl(false);
+  containerIdControl = new FormControl('');
+  attributesControl = new FormControl('');
 
   constructor(private location: Location) {
+  }
+
+  ngOnInit() {
     let roleId = this.route.snapshot.params['id'];
     if (roleId !== "0") {
       this.authenticatedService.getAccessToken().subscribe(token => {
@@ -28,8 +39,17 @@ export class RoleEditor {
             'Authorization': `Bearer ${token}`
           }
         }).then(async response => {
-          this.roleDto = await response.json();
-          this.roleDtoFormGroup = this.buildFormFromDto(this.roleDto);
+          response.json().then(data => {
+            this.idControl.setValue(data.id);
+            this.nameControl.setValue(data.name);
+            this.descriptionControl.setValue(data.description);
+            this.scopeParamRequiredControl.setValue(data.scopeParamRequired);
+            this.compositeControl.setValue(data.composite);
+            this.compositesControl.setValue(data.composites);
+            this.clientRoleControl.setValue(data.clientRole);
+            this.containerIdControl.setValue(data.containerId);
+            this.attributesControl.setValue(data.attributes);
+          });
         });
       });
     }

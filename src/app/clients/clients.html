@@ -3,29 +3,12 @@
     <mat-card class="feature-list-card">
       <mat-card-header>
         <mat-card-title-group>
-          <mat-card-title>{{ client.clientId }}</mat-card-title>
-          <mat-card-subtitle>
-          <a [routerLink]="['/client', client.id]" matListItemLine>
-            {{ client.id }}
-          </a>
-          </mat-card-subtitle>
+          <a [routerLink]="['/client', client.id]" matCardTitle>{{ client.clientId }}</a>
+          <span matCardSubtitle>{{ client.name }}</span>
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-        <mat-list>
-          <mat-list-item>
-            <span matListItemTitle>Name</span>
-            <span matListItemLine>{{ client.name }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span matListItemTitle>Description</span>
-            <span matListItemLine>{{ client.description }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span matListItemTitle>Enabled</span>
-            <span matListItemLine>{{ client.enabled }}</span>
-          </mat-list-item>
-        </mat-list>
+        <span>enabled: {{ client.enabled }}</span>
       </mat-card-content>
     </mat-card>
   }

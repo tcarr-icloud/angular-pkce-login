@@ -4,54 +4,52 @@
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
+    <mat-card-actions>
+      <button matButton="tonal" (click)="save()">Save</button>
+      <button matButton="tonal" (click)="goBack()">Cancel</button>
+    </mat-card-actions>
     <form [formGroup]="userDtoFormGroup">
-      <mat-list>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Id</mat-label>
-            <input matInput formControlName="id" readonly>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>KeycloakUserId</mat-label>
-            <input matInput formControlName="keycloakUserId"/>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Username</mat-label>
-            <input matInput formControlName="username"/>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email"/>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>FirstName</mat-label>
-            <input matInput formControlName="firstName"/>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>LastName</mat-label>
-            <input matInput formControlName="lastName"/>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-checkbox [checked]="userDtoFormGroup.value.enabled">
-            Enabled
-          </mat-checkbox>
-        </div>
-      </mat-list>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Id</mat-label>
+          <input matInput formControlName="id" readonly>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>KeycloakUserId</mat-label>
+          <input matInput formControlName="keycloakUserId"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>FirstName</mat-label>
+          <input matInput formControlName="firstName"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>LastName</mat-label>
+          <input matInput formControlName="lastName"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-checkbox [checked]="userDtoFormGroup.value.enabled">
+          Enabled
+        </mat-checkbox>
+      </div>
     </form>
   </mat-card-content>
-  <mat-card-actions>
-    <button matButton="tonal" (click)="save()">Save</button>
-    <button matButton="tonal" (click)="goBack()">Cancel</button>
-  </mat-card-actions>
 </mat-card>
