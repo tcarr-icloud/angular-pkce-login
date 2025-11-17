@@ -68,10 +68,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pkce-login:build:production"
+              "buildTarget": "angular-keycloak-resource:build:production"
             },
             "development": {
-              "buildTarget": "pkce-login:build:development"
+              "buildTarget": "angular-keycloak-resource:build:development"
             }
           },
           "defaultConfiguration": "development"
