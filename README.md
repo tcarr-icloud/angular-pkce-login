@@ -1,9 +1,21 @@
 # angular-keycloak-resource
 
-**Requires** the [keycloak-resource](http://github.com/tcarr-icloud/keycloak-resource) service.
+**Requires** [Keycloak](https://github.com/tcarr-icloud/DockerComposeWithPgAdminPostgresqlKeycloak.git)
+
+**Requires** [keycloak-resource](http://github.com/tcarr-icloud/keycloak-resource).
 
 ## Overview
 This project is a modern Angular 20 application that provides secure authentication using the PKCE authorization flow. It leverages the `angular-auth-oidc-client` library to handle OAuth 2.0 and OpenID Connect authentication protocols.
+
+![Welcome Guest](screenshots/Welcome%20Guest.png)
+![Sign In](screenshots/Sign%20in.png)
+![Home](screenshots/Home.png)
+![Clients](screenshots/Clients.png)
+![Client-Editor](screenshots/Client-editor.png)
+![Users](screenshots/Users.png)
+![User-Editor](screenshots/User-editor.png)
+![Roles](screenshots/Roles.png)
+![Role-Editor](screenshots/Role-editor.png)
 
 ## Tech Stack
 
